@@ -69,9 +69,49 @@
     .grid{ display:grid; gap:18px }
     .grid.two{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .grid.three{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    @media (max-width: 900px){ .hero{ grid-template-columns: 1fr } .grid.two, .grid.three{ grid-template-columns: 1fr } }
+    
+    .code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; background: rgba(127,127,127,0.08); padding:10px 12px; border-radius:12px; overflow-x: auto; word-wrap: break-word; white-space: pre-wrap; }
 
-    .code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; background: rgba(127,127,127,0.08); padding:10px 12px; border-radius:12px; overflow:auto }
+    /* Responsive design improvements */
+    @media (max-width: 900px){ 
+      .hero{ grid-template-columns: 1fr; gap: 20px; padding: 50px 0 30px; } 
+      .grid.two, .grid.three{ grid-template-columns: 1fr; } 
+    }
+    
+    @media (max-width: 768px) {
+      .container{ width: 95vw; }
+      .nav-inner{ flex-direction: column; gap: 12px; padding: 8px 0; }
+      .nav-inner > div:first-child{ 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 8px; 
+      }
+      .nav a{ padding: 4px 8px; font-size: 14px; }
+      .hero{ padding: 40px 0 20px; }
+      .hero h1{ font-size: clamp(24px, 6vw, 32px); }
+      .tagline{ font-size: clamp(14px, 4vw, 18px); }
+      .cta{ gap: 8px; }
+      .btn{ padding: 8px 12px; font-size: 14px; }
+      .card{ padding: 16px; }
+      .code{ font-size: 12px; padding: 8px 10px; }
+    }
+    
+    @media (max-width: 480px) {
+      .nav-inner > div:first-child{ 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 6px; 
+      }
+      .badge{ font-size: 12px; padding: 6px 10px; }
+      .hero h1{ font-size: clamp(20px, 7vw, 28px); }
+      .authors{ gap: 6px; font-size: 14px; }
+      .affils{ font-size: 12px; }
+      .cta{ flex-direction: column; align-items: stretch; }
+      .btn{ justify-content: center; }
+      .card{ padding: 12px; }
+      .code{ font-size: 11px; padding: 6px 8px; }
+    }
 
     /* Simple lightbox modal for images/videos */
     .modal{ position: fixed; inset:0; display:none; place-items:center; background: rgba(0,0,0,0.7); z-index:100 }
