@@ -87,6 +87,9 @@
     .authors{ display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 6px; color:var(--muted)}
     .authors a{ color:inherit }
     .affils{ color:var(--muted); font-size:14px }
+    .author-list sup{ font-size:.7em; vertical-align: super; margin-left:2px }
+    .affil-notes{ color:var(--muted); margin-top:4px }
+    .affils-numeric sup{ margin-right:3px }
 
     .card{ background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow: var(--shadow); }
     section{ padding: 26px 0 }
@@ -189,22 +192,29 @@
       <h1>RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots <span style="opacity:.6">(under review)</span></h1>
       <p class="tagline">The first Offline Adaptive Domain Randomization method that needs as little as a single real‑world trajectory to fit dynamics, train in simulation, and transfer policies to real soft robots reliably.</p>
 
-      <div class="authors">
-        <span><a href="#">Andrea Protopapa</a></span>
+      <div class="authors author-list">
+        <span><a href="#">Andrea Protopapa</a><sup>1,*</sup></span>
         <span>·</span>
-        <span><a href="https://gabrieletiboni.com/">Gabriele Tiboni</a></span>
+        <span><a href="https://gabrieletiboni.com/">Gabriele Tiboni</a><sup>1</sup></span>
         <span>·</span>
-        <span><a href="#">Julien Vandaele</a></span>
+        <span><a href="#">Julien Vandaele</a><sup>2</sup></span>
         <span>·</span>
-        <span><a href="#">Tatiana Tommasi</a></span>
+        <span><a href="#">Tatiana Tommasi</a><sup>1</sup></span>
         <span>·</span>
-        <span><a href="#">Raffaello Camoriano</a></span>
+        <span><a href="#">Raffaello Camoriano</a><sup>1,3</sup></span>
         <span>·</span>
-        <span><a href="#">Christian Duriez</a></span>
+        <span><a href="#">Christian Duriez</a><sup>2</sup></span>
         <span>·</span>
-        <span><a href="#">Giuseppe Averta</a></span>
+        <span><a href="#">Giuseppe Averta</a><sup>1</sup></span>
       </div>
-      <div class="affils">Politecnico di Torino · Inria, Lille · Istituto Italiano di Tecnologia</div>
+      <div class="affils affils-numeric">
+        <span><sup>1</sup> Politecnico di Torino</span> ·
+        <span><sup>2</sup> Inria, Lille</span> ·
+        <span><sup>3</sup> Istituto Italiano di Tecnologia</span>
+      </div>
+      <div class="small affil-notes"><em>* Corresponding Author:</em> <a href="mailto:andrea.protopapa@polito.it">andrea.protopapa@polito.it</a>
+        <!-- &nbsp; &nbsp; <span>† Indicates Equal Supervision</span> -->
+      </div>
 
       <div class="cta">
         <a class="btn" href="#" target="_blank">📄 Paper (PDF)</a>
@@ -216,7 +226,7 @@
     <div class="card">
       <!-- Replace src with assets/teaser.png or an overview figure -->
       <img src="assets/teaser.png" alt="Teaser figure: high-level overview of the method" />
-      <div class="small" style="margin-top:8px">Figure 1: A brief caption for the teaser/overview figure.</div>
+      <div class="small" style="margin-top:8px">RF-DROPO is an Offline Adaptive Domain Randomization method to transfer policies learned in simulation for soft robots: (1) real-world data are collected offline for (2) the inference of posterior distribution over simulator parameters; then, (3) a policy is trained with Domain Randomization and (4) transferred to the real setup.</div>
     </div>
   </header>
 
@@ -231,15 +241,15 @@
       <div class="grid two">
         <div class="card">
           <h2>Method Overview</h2>
-          <p>Describe the approach at a high level. Use a schematic diagram or pipeline image. You can open images in a modal by clicking them.</p>
+          <p>Reset-Free DROPO is specifically designed to address highly-non linear and partially-observable environments, which is typical for deformable robots with infinite DoFs. It performs open-loop rollouts from the initial state s0 of a trajectory collected in the real world. The likelihood of reaching each observed real-world state st+1 is estimated from a distribution of simulated transitions. Maximizing the likelihood of real-world data to occur in simulation, RF-DROPO computes an optimal distribution of dynamic parameters (e.g., friction, masses, etc.) used for training an RL policy with randomized parameters sampled from the same distribution. </p>
           <img class="zoomable" src="assets/overview.png" alt="Method pipeline diagram" />
         </div>
         <div class="card">
           <h2>Key Contributions</h2>
           <ul>
             <li><strong>✅ Real-world validation</strong>: RF-DROPO enables zero-shot sim→real transfer on a physical soft robot; we release a modular DR framework, code, and data.</li>
-            <li><strong></strong>📊 ADR under partial observability</strong>: state-of-the-art parameter inference and robust policy learning; extended robustness analysis across multiple misspecified parameters.</li>
-            <li><strong>💡 Few-shot data efficiency</strong>: effective even with a single real trajectory for reliable distribution estimation and policy training.</li>
+            <li><strong>📊 ADR under partial observability</strong>: state-of-the-art parameter inference and robust policy learning; extended robustness analysis across multiple misspecified parameters.</li>
+            <li><strong>💡 Few-shot data efficiency</strong>: effective even with a single real trajectory for reliable dynamic parameters distribution estimation and robust policy training.</li>
           </ul>
         </div>
       </div>
