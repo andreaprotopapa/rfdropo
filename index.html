@@ -224,7 +224,7 @@
       <div class="cta">
         <a class="btn" href="#" target="_blank">📄 Paper (PDF)</a>
         <a class="btn" href="#resources">💻 Code</a>
-        <a class="btn" href="#resources">🗂️ Dataset</a>
+        <!-- <a class="btn" href="#resources">🗂️ Dataset</a> -->
         <a class="btn" href="#video">▶️ Video</a>
       </div>
     </div>
@@ -262,18 +262,18 @@
 
     <section id="results">
       <h2>Results</h2>
-      <div class="grid three team">
+      <div class="grid three">
         <figure class="card">
           <img class="zoomable" src="assets/result_1.jpg" alt="Qualitative result 1" />
-          <figcaption class="small">Qualitative comparison on Dataset A.</figcaption>
+          <figcaption class="small">TrunkPush task. Evaluation on the nominal simulated target domain in terms of distance from the goal position (lower is better).</figcaption>
         </figure>
         <figure class="card">
           <img class="zoomable" src="assets/result_2.jpg" alt="Qualitative result 2" />
-          <figcaption class="small">Ablation highlighting component B.</figcaption>
+          <figcaption class="small">Success rate (%) on the Sim2Real TrunkPush task over various distance thresholds.</figcaption>
         </figure>
         <figure class="card">
           <img class="zoomable" src="assets/result_3.jpg" alt="Qualitative result 3" />
-          <figcaption class="small">Robustness under condition C.</figcaption>
+          <figcaption class="small">Scatter plot of final box positions for each of the 25 rollouts in the TrunkPush Sim2Real experiment.</figcaption>
         </figure>
       </div>
     </section>
@@ -286,7 +286,7 @@
         <source src="assets/demo.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
-      <p class="small">Tip: provide both MP4 (H.264) and WebM (VP9/AV1) for broad compatibility. Keep duration &lt; 3 min for attention and page load.</p>
+      <!-- <p class="small">Tip: provide both MP4 (H.264) and WebM (VP9/AV1) for broad compatibility. Keep duration &lt; 3 min for attention and page load.</p> -->
 
       <!-- Option B: YouTube/Vimeo embed (uncomment to use) -->
       <!--
@@ -302,43 +302,49 @@
           <h2>Paper & Resources</h2>
           <ul>
             <li>📄 <a href="#" target="_blank">Paper (PDF)</a> · <a href="#" target="_blank">arXiv</a> · <a href="#" target="_blank">DOI</a></li>
-            <li>💻 <a href="#" target="_blank">Code (GitHub)</a> · <a href="#" target="_blank">Model Weights</a></li>
-            <li>🗂️ <a href="#" target="_blank">Dataset / Data Card</a></li>
-            <li>🎥 <a href="#video">Project Video</a> · <a href="#" target="_blank">Slides</a> · <a href="#" target="_blank">Poster</a></li>
-            <li>📰 <a href="#" target="_blank">Press Kit</a> (teaser, logos, one‑pager)</li>
+            <li>💻 <a href="#" target="_blank">Code (GitHub)</a>
+                <!-- · <a href="#" target="_blank">Model Weights</a> -->
+            </li>
+            <!-- <li>🗂️ <a href="#" target="_blank">Dataset / Data Card</a></li> -->
+            <li>🎥 <a href="#video">Project Video</a> <!-- · <a href="#" target="_blank">Slides</a> · <a href="#" target="_blank">Poster</a> --></li>
+            <!-- <li>📰 <a href="#" target="_blank">Press Kit</a> (teaser, logos, one‑pager)</li> -->
           </ul>
         </div>
         <div class="card">
           <h2>BibTeX</h2>
-<pre class="code" id="bibtex">@article{Protopapa2025RFDROPO,
-  title   = {RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots},
-  author  = {Protopapa, Andrea and Tiboni, Gabriele and Vandaele, Julien and Tommasi, Tatiana and Camoriano, Raffaello and Duriez, Christian and Averta, Giuseppe},
-  journal = {XXX},
-  year    = {XXXX},
-  volume  = {XX},
-  number  = {X},
-  pages   = {XXX},
-  doi     = {XX.XXXX/ToBeAssigned},
-  url     = {https://your-github-io-site/}
-}</pre>
+            <pre class="code" id="bibtex">@article{Protopapa2025RFDROPO,
+            title   = {RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots},
+            author  = {Protopapa, Andrea and Tiboni, Gabriele and Vandaele, Julien and Tommasi, Tatiana and Camoriano, Raffaello and Duriez, Christian and Averta, Giuseppe},
+            journal = {XXX},
+            year    = {XXXX},
+            volume  = {XX},
+            number  = {X},
+            pages   = {XXX},
+            doi     = {XX.XXXX/ToBeAssigned},
+            url     = {https://your-github-io-site/}
+            }</pre>
           <button class="btn" id="copyBib">📋 Copy</button>
         </div>
       </div>
     </section>
 
-    <section class="card">
-      <h2>Ethics & Reproducibility</h2>
-      <ul>
-        <li>⚖️ <strong>Ethical considerations:</strong> Describe risks, mitigations, and limitations.</li>
-        <li>🔁 <strong>Reproducibility:</strong> Environment specs, seeds, and a minimal run script.</li>
-        <li>📜 <strong>License:</strong> Clarify code/data licensing.</li>
-      </ul>
-    </section>
+    <!--
+        <section class="card">
+        <h2>Ethics & Reproducibility</h2>
+        <ul>
+            <li>⚖️ <strong>Ethical considerations:</strong> Describe risks, mitigations, and limitations.</li>
+            <li>🔁 <strong>Reproducibility:</strong> Environment specs, seeds, and a minimal run script.</li>
+            <li>📜 <strong>License:</strong> Clarify code/data licensing.</li>
+        </ul>
+        </section>
+    -->
 
-    <section class="card">
-      <h2>Acknowledgements</h2>
-      <p>We thank collaborators and funders (grant numbers here). Replace logos with your own if desired.</p>
-    </section>
+    <!--
+        <section class="card">
+        <h2>Acknowledgements</h2>
+        <p>We thank collaborators and funders (grant numbers here). Replace logos with your own if desired.</p>
+        </section>
+    -->
 
     <section class="card">
       <h2>Team</h2>
@@ -386,13 +392,15 @@
       <details><summary>Will you release the code/models?</summary>
         <p>Yes, upon camera‑ready. Watch the GitHub repo for updates.</p>
       </details>
-      <details><summary>How does this compare to Baseline X?</summary>
+      <!--
+        <details><summary>How does this compare to Baseline X?</summary>
         <p>We outperform Baseline X by Y% on Z metric while being simpler.</p>
-      </details>
+        </details>
+      -->
     </section>
 
     <footer class="container">
-      <div class="small">© 2025 Andrea Protopapa. This site is a single HTML file. Last updated: <span id="lastUpdated"></span>.</div>
+      <div class="small">© 2025 Andrea Protopapa. All Rights Reserved. Last updated: <span id="lastUpdated"></span>.</div>
     </footer>
   </main>
 
