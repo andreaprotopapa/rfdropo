@@ -160,6 +160,11 @@
 
     footer{ color:var(--muted); padding:40px 0 80px; }
     .small{ font-size: 14px; color: var(--muted) }
+
+    /* Team member images */
+    .team img{ width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 12px; }
+    @media (max-width: 768px) { .team img{ width: 100px; height: 100px; } }
+    @media (max-width: 480px) { .team img{ width: 80px; height: 80px; } }
   </style>
 </head>
 <body>
@@ -257,7 +262,7 @@
 
     <section id="results">
       <h2>Results</h2>
-      <div class="grid three">
+      <div class="grid three team">
         <figure class="card">
           <img class="zoomable" src="assets/result_1.jpg" alt="Qualitative result 1" />
           <figcaption class="small">Qualitative comparison on Dataset A.</figcaption>
@@ -337,7 +342,7 @@
 
     <section class="card">
       <h2>Team</h2>
-      <div class="grid three">
+      <div class="grid three team">
         <div>
           <img src="assets/people/protopapa.jpg" alt="Andrea Protopapa portrait" />
           <div><strong>Andrea Protopapa</strong></div>
