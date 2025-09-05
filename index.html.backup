@@ -49,33 +49,6 @@
     .nav a:hover{ background:var(--panel); text-decoration:none }
     .theme-toggle{ border:1px solid var(--border); background:var(--panel); padding:8px 12px; border-radius:12px; cursor:pointer; color:var(--muted); }
 
-    /* Navigation structure */
-    .nav-brand{ display:flex; align-items:center; gap:12px; }
-    .nav-links{ display:flex; gap:16px; align-items:center; }
-    .nav-controls{ display:flex; gap:12px; align-items:center; }
-
-    /* Hamburger menu */
-    .hamburger{ 
-      display:none; 
-      flex-direction:column; 
-      gap:4px; 
-      background:none; 
-      border:none; 
-      cursor:pointer; 
-      padding:8px; 
-      border-radius:8px;
-    }
-    .hamburger span{ 
-      width:20px; 
-      height:2px; 
-      background:var(--text); 
-      transition:all 0.3s ease; 
-      border-radius:1px;
-    }
-    .hamburger.active span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
-    .hamburger.active span:nth-child(2){ opacity:0; }
-    .hamburger.active span:nth-child(3){ transform:rotate(-45deg) translate(7px,-6px); }
-
     .hero{ padding:72px 0 36px; display:grid; grid-template-columns: 1.2fr 0.8fr; gap:28px; align-items:center }
     .hero h1{ font-size: clamp(28px, 4.5vw, 56px); line-height:1.05; margin:0 0 10px; }
     .tagline{ font-size: clamp(16px, 2.2vw, 22px); color:var(--muted); margin:0 0 16px; }
@@ -107,29 +80,14 @@
     
     @media (max-width: 768px) {
       .container{ width: 95vw; }
-      .hamburger{ display:flex; }
-      .nav-links{ 
-        position:fixed; 
-        top:100%; 
-        left:0; 
-        right:0; 
-        background:var(--panel); 
-        border-top:1px solid var(--border); 
-        flex-direction:column; 
-        padding:20px; 
-        gap:12px; 
-        transform:translateY(-100%); 
-        opacity:0; 
-        visibility:hidden; 
-        transition:all 0.3s ease;
-        box-shadow: var(--shadow);
+      .nav-inner{ flex-direction: column; gap: 12px; padding: 8px 0; }
+      .nav-inner > div:first-child{ 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 8px; 
       }
-      .nav-links.active{ 
-        transform:translateY(0); 
-        opacity:1; 
-        visibility:visible; 
-      }
-      .nav a{ padding: 12px 16px; font-size: 16px; width:100%; text-align:center; border-radius:12px; }
+      .nav a{ padding: 4px 8px; font-size: 14px; }
       .hero{ padding: 40px 0 20px; }
       .hero h1{ font-size: clamp(24px, 6vw, 32px); }
       .tagline{ font-size: clamp(14px, 4vw, 18px); }
@@ -140,6 +98,11 @@
     }
     
     @media (max-width: 480px) {
+      .nav-inner > div:first-child{ 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 6px; 
+      }
       .badge{ font-size: 12px; padding: 6px 10px; }
       .hero h1{ font-size: clamp(20px, 7vw, 28px); }
       .authors{ gap: 6px; font-size: 14px; }
@@ -162,10 +125,8 @@
 <body>
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="nav-brand">
+      <div style="display:flex; align-items:center; gap:12px">
         <span class="badge">New • v1.0</span>
-      </div>
-      <div class="nav-links" id="navLinks">
         <a href="#abstract">Abstract</a>
         <a href="#overview">Overview</a>
         <a href="#results">Results</a>
@@ -173,14 +134,7 @@
         <a href="#bibtex">BibTeX</a>
         <a href="#resources">Resources</a>
       </div>
-      <div class="nav-controls">
-        <button class="theme-toggle" id="themeBtn" aria-label="Toggle color theme">🌓 Theme</button>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle color theme">🌓 Theme</button>
     </div>
   </nav>
 
@@ -368,31 +322,6 @@
     }
     themeBtn.addEventListener('click', cycleTheme);
     themeBtn.textContent = (preferred==='light'?'🌞':'🌓') + ' Theme';
-
-    // Hamburger menu toggle
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    hamburgerBtn.addEventListener('click', () => {
-      hamburgerBtn.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    navLinks.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') {
-        hamburgerBtn.classList.remove('active');
-        navLinks.classList.remove('active');
-      }
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!navLinks.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-        hamburgerBtn.classList.remove('active');
-        navLinks.classList.remove('active');
-      }
-    });
 
     // Copy BibTeX button
     document.getElementById('copyBib').addEventListener('click', ()=>{
