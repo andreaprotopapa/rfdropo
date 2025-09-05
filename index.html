@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots – Short Tagline</title>
-  <meta name="description" content="One‑sentence summary of the project. Replace this with your abstract's first line." />
+  <title>RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots - RF-DROPO</title>
+  <meta name="description" content="RF-DROPO: an offline adaptive domain randomization method that uses as little as a single real-world trajectory to train RL policies in simulation and transfer them to real soft robots." />
   
   <!-- Open Graph / Twitter (social preview) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots – Short Tagline" />
-  <meta property="og:description" content="One‑sentence summary of the project." />
+  <meta property="og:title" content="RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots – RF-DROPO" />
+  <meta property="og:description" content="RF-DROPO: an offline adaptive domain randomization method that uses as little as a single real-world trajectory to train RL policies in simulation and transfer them to real soft robots." />
   <meta property="og:image" content="assets/teaser.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0ea5e9" />
@@ -187,16 +187,24 @@
   <header class="container hero">
     <div>
       <h1>RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots <span style="opacity:.6">(under review)</span></h1>
-      <p class="tagline">A concise, compelling one‑liner describing what your method does and why it matters.</p>
+      <p class="tagline">The first Offline Adaptive Domain Randomization method that needs as little as a single real‑world trajectory to fit dynamics, train in simulation, and transfer policies to real soft robots reliably.</p>
 
       <div class="authors">
         <span><a href="#">Andrea Protopapa</a></span>
         <span>·</span>
-        <span><a href="#">Second Author</a></span>
+        <span><a href="https://gabrieletiboni.com/">Gabriele Tiboni</a></span>
         <span>·</span>
-        <span><a href="#">Third Author</a></span>
+        <span><a href="#">Julien Vandaele</a></span>
+        <span>·</span>
+        <span><a href="#">Tatiana Tommasi</a></span>
+        <span>·</span>
+        <span><a href="#">Raffaello Camoriano</a></span>
+        <span>·</span>
+        <span><a href="#">Christian Duriez</a></span>
+        <span>·</span>
+        <span><a href="#">Giuseppe Averta</a></span>
       </div>
-      <div class="affils">Affiliation A · Affiliation B</div>
+      <div class="affils">Politecnico di Torino · Inria, Lille · Istituto Italiano di Tecnologia</div>
 
       <div class="cta">
         <a class="btn" href="#" target="_blank">📄 Paper (PDF)</a>
@@ -215,7 +223,8 @@
   <main class="container">
     <section id="abstract" class="card">
       <h2>Abstract</h2>
-      <p>Replace this paragraph with your paper's abstract. Keep it identical to the official version. Aim for ~150–250 words, link to definitions if needed, and avoid extra citations here. If you have a TL;DR, add it as the final sentence.</p>
+      <p>Soft robots come with many advantages with respect to their rigid counterparts: i) safer interaction, ii) higher adaptability to the environment, and iii) higher resilience and robustness. However, one of the major challenges that limit their wide applicability is the difficulty of specifying accurate models of their infinite-DoFs dynamics. This is a problem not only for purely model-based control, which suffers from the lack of explicit closed-form representations, but also for learning-based approaches, that need to learn from experience using accurate simulators. This makes Reinforcement Learning (RL) particularly ineffective when used to train policies for soft robot control, because of the large domain gap between what can be simulated during training and the real world. This paper proposes RF-DROPO, a Domain Randomization technique specifically designed to tame the complexity of sim-to-real transfer in soft robotics. RF-DROPO employs an extremely small amount of data collected in the real world (as low as a single trajectory) to optimize posterior estimates of the dynamic parameters of the robot, which are then adopted as domain randomization distributions for RL policy training in simulation. Extensive evaluations in simulation and real-world environments on two different tasks for a soft robot demonstrate that RF-DROPO is accurate, data-efficient, and robust to real-world deployment with very high reliability, opening interesting perspectives for future research on RL for closed-loop soft robot control. With this paper, we also fully release our code and data, as well as the first soft robotics simulator coding interface supporting Domain Randomization.</p>
+      <p class="small"><strong>Keywords:</strong> Reinforcement learning, Sim-to-real transfer, Soft robotics, Domain randomization.</p>
     </section>
 
     <section id="overview">
@@ -228,9 +237,9 @@
         <div class="card">
           <h2>Key Contributions</h2>
           <ul>
-            <li>💡 Contribution 1 in a single line.</li>
-            <li>⚙️ Contribution 2 with impact phrasing.</li>
-            <li>📈 Contribution 3 demonstrating improvements on task X.</li>
+            <li><strong>✅ Real-world validation</strong>: RF-DROPO enables zero-shot sim→real transfer on a physical soft robot; we release a modular DR framework, code, and data.</li>
+            <li><strong></strong>📊 ADR under partial observability</strong>: state-of-the-art parameter inference and robust policy learning; extended robustness analysis across multiple misspecified parameters.</li>
+            <li><strong>💡 Few-shot data efficiency</strong>: effective even with a single real trajectory for reliable distribution estimation and policy training.</li>
           </ul>
         </div>
       </div>
@@ -286,12 +295,16 @@
         </div>
         <div class="card">
           <h2>BibTeX</h2>
-<pre class="code" id="bibtex">@inproceedings{lastname2025project,
-  title     = {RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots},
-  author    = {Last, First and Second, Author and Third, Author},
-  booktitle = {Proceedings of the Fancy Conference},
-  year      = {2025},
-  url       = {https://your-github-io-site/},
+<pre class="code" id="bibtex">@article{Protopapa2025RFDROPO,
+  title   = {RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots},
+  author  = {Protopapa, Andrea and Tiboni, Gabriele and Vandaele, Julien and Tommasi, Tatiana and Camoriano, Raffaello and Duriez, Christian and Averta, Giuseppe},
+  journal = {XXX},
+  year    = {XXXX},
+  volume  = {XX},
+  number  = {X},
+  pages   = {XXX},
+  doi     = {XX.XXXX/ToBeAssigned},
+  url     = {https://your-github-io-site/}
 }</pre>
           <button class="btn" id="copyBib">📋 Copy</button>
         </div>
@@ -316,19 +329,39 @@
       <h2>Team</h2>
       <div class="grid three">
         <div>
-          <img src="assets/people/person1.jpg" alt="Andrea Protopapa portrait" />
+          <img src="assets/people/protopapa.jpg" alt="Andrea Protopapa portrait" />
           <div><strong>Andrea Protopapa</strong></div>
-          <div class="small">Affiliation · <a href="#">Website</a> · <a href="mailto:first@uni.edu">Email</a></div>
+          <div class="small">Politecnico di Torino · <a href="#">Website</a> · <a href="mailto:andrea.protopapa@polito.it">Email</a></div>
         </div>
         <div>
-          <img src="assets/people/person2.jpg" alt="Second Author portrait" />
-          <div><strong>Second Author</strong></div>
-          <div class="small">Affiliation · <a href="#">Website</a></div>
+          <img src="assets/people/tiboni.jpg" alt="Gabriele Tiboni portrait" />
+          <div><strong>Gabriele Tiboni</strong></div>
+          <div class="small">Politecnico di Torino · <a href="#">Website</a></div>
         </div>
         <div>
-          <img src="assets/people/person3.jpg" alt="Third Author portrait" />
-          <div><strong>Third Author</strong></div>
-          <div class="small">Affiliation · <a href="#">Website</a></div>
+          <img src="assets/people/vandaele.jpg" alt="Julien Vandaele portrait" />
+          <div><strong>Julien Vandaele</strong></div>
+          <div class="small">Inria, Lille · <a href="#">Website</a></div>
+        </div>
+        <div>
+          <img src="assets/people/tommasi.jpg" alt="Tatiana Tommasi portrait" />
+          <div><strong>Tatiana Tommasi</strong></div>
+          <div class="small">Politecnico di Torino · <a href="#">Website</a></div>
+        </div>
+        <div>
+          <img src="assets/people/camoriano.jpg" alt="Raffaello Camoriano portrait" />
+          <div><strong>Raffaello Camoriano</strong></div>
+          <div class="small">Politecnico di Torino · Istituto Italiano di Tecnologia · <a href="#">Website</a></div>
+        </div>
+        <div>
+          <img src="assets/people/duriez.jpg" alt="Christian Duriez portrait" />
+          <div><strong>Christian Duriez</strong></div>
+          <div class="small">Inria, Lille · <a href="#">Website</a></div>
+        </div>
+        <div>
+          <img src="assets/people/averta.jpg" alt="Giuseppe Averta portrait" />
+          <div><strong>Giuseppe Averta</strong></div>
+          <div class="small">Politecnico di Torino · <a href="#">Website</a></div>
         </div>
       </div>
     </section>
