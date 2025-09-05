@@ -246,7 +246,7 @@
       <div class="grid two">
         <div class="card">
           <h2>Method Overview</h2>
-          <p>Reset-Free DROPO is specifically designed to address highly-non linear and partially-observable environments, which is typical for deformable robots with infinite DoFs. It performs open-loop rollouts from the initial state s0 of a trajectory collected in the real world. The likelihood of reaching each observed real-world state st+1 is estimated from a distribution of simulated transitions. Maximizing the likelihood of real-world data to occur in simulation, RF-DROPO computes an optimal distribution of dynamic parameters (e.g., friction, masses, etc.) used for training an RL policy with randomized parameters sampled from the same distribution. </p>
+          <p>Reset-Free DROPO is specifically designed to address highly-non linear and partially-observable environments, which is typical for deformable robots with infinite DoFs. It performs open-loop rollouts from the initial state s<sub>0</sub> of a trajectory collected in the real world. The likelihood of reaching each observed real-world state s<sub>t+1</sub> is estimated from a distribution of simulated transitions. Maximizing the likelihood of real-world data to occur in simulation, RF-DROPO computes an optimal distribution of dynamic parameters (e.g., friction, masses, etc.) used for training an RL policy with randomized parameters sampled from the same distribution. </p>
           <img class="zoomable" src="assets/overview.png" alt="Method pipeline diagram" />
         </div>
         <div class="card">
