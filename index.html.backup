@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots – Short Tagline</title>
+  <title>RF-DROPO: Robust and Efficient Sim-to-Real Policy Transfer for Soft Robots via Domain Randomization – Short Tagline</title>
   <meta name="description" content="One‑sentence summary of the project. Replace this with your abstract's first line." />
   
   <!-- Open Graph / Twitter (social preview) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots – Short Tagline" />
+  <meta property="og:title" content="RF-DROPO: Robust and Efficient Sim-to-Real Policy Transfer for Soft Robots via Domain Randomization – Short Tagline" />
   <meta property="og:description" content="One‑sentence summary of the project." />
   <meta property="og:image" content="assets/teaser.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -140,7 +140,7 @@
 
   <header class="container hero">
     <div>
-      <h1>RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots <span style="opacity:.6">(under review)</span></h1>
+      <h1>RF-DROPO: Robust and Efficient Sim-to-Real Policy Transfer for Soft Robots via Domain Randomization <span style="opacity:.6">(under review)</span></h1>
       <p class="tagline">A concise, compelling one‑liner describing what your method does and why it matters.</p>
 
       <div class="authors">
@@ -241,7 +241,7 @@
         <div class="card">
           <h2>BibTeX</h2>
 <pre class="code" id="bibtex">@inproceedings{lastname2025project,
-  title     = {RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots},
+  title     = {RF-DROPO: Robust and Efficient Sim-to-Real Policy Transfer for Soft Robots via Domain Randomization},
   author    = {Last, First and Second, Author and Third, Author},
   booktitle = {Proceedings of the Fancy Conference},
   year      = {2025},

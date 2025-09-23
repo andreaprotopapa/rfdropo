@@ -1,1 +1,1 @@
-# RF-DROPO: Robust and Efficient Transfer of Simulation-Based Policies to Real Soft Robots
+# RF-DROPO: Robust and Efficient Sim-to-Real Policy Transfer for Soft Robots via Domain Randomization
