@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RF-DROPO: Robust and Efficient Sim-to-Real Policy Transfer for Soft Robots via Domain Randomization - RF-DROPO</title>
-  <meta name="description" content="RF-DROPO: an offline adaptive domain randomization method that uses as little as a single real-world trajectory to train RL policies in simulation and transfer them to real soft robots." />
+  <meta name="description" content="RF-DROPO: an offline adaptive domain randomization method that uses as few as a single real-world trajectory to train RL policies in simulation and transfer them to real soft robots." />
   
   <!-- Open Graph / Twitter (social preview) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="RF-DROPO: Robust and Efficient Sim-to-Real Policy Transfer for Soft Robots via Domain Randomization – RF-DROPO" />
-  <meta property="og:description" content="RF-DROPO: an offline adaptive domain randomization method that uses as little as a single real-world trajectory to train RL policies in simulation and transfer them to real soft robots." />
+  <meta property="og:description" content="RF-DROPO: an offline adaptive domain randomization method that uses as few as a single real-world trajectory to train RL policies in simulation and transfer them to real soft robots." />
   <meta property="og:image" content="assets/teaser.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0ea5e9" />
@@ -199,7 +199,7 @@
   <header class="container hero">
     <div>
       <h1>RF-DROPO: Robust and Efficient Sim-to-Real Policy Transfer for Soft Robots via Domain Randomization <span style="opacity:.6">(under review)</span></h1>
-      <p class="tagline">The first Offline Adaptive Domain Randomization method that needs as little as a single real‑world trajectory to fit dynamics, train in simulation, and transfer policies to real soft robots reliably.</p>
+      <p class="tagline">The first Offline Adaptive Domain Randomization method that needs as few as a single real‑world trajectory to estimate dynamics, fully train in simulation, and zero-shot transfer policies to real soft robots reliably.</p>
 
       <div class="authors author-list">
         <span><a href="#">Andrea Protopapa</a><sup>1,*</sup></span>
@@ -242,7 +242,9 @@
   <main class="container">
     <section id="abstract" class="card">
       <h2>Abstract</h2>
-      <p>Soft robots come with many advantages with respect to their rigid counterparts: i) safer interaction, ii) higher adaptability to the environment, and iii) higher resilience and robustness. However, one of the major challenges that limit their wide applicability is the difficulty of specifying accurate models of their infinite-DoFs dynamics. This is a problem not only for purely model-based control, which suffers from the lack of explicit closed-form representations, but also for learning-based approaches, that need to learn from experience using accurate simulators. This makes Reinforcement Learning (RL) particularly ineffective when used to train policies for soft robot control, because of the large domain gap between what can be simulated during training and the real world. This paper proposes RF-DROPO, a Domain Randomization technique specifically designed to tame the complexity of sim-to-real transfer in soft robotics. RF-DROPO employs an extremely small amount of data collected in the real world (as low as a single trajectory) to optimize posterior estimates of the dynamic parameters of the robot, which are then adopted as domain randomization distributions for RL policy training in simulation. Extensive evaluations in simulation and real-world environments on two different tasks for a soft robot demonstrate that RF-DROPO is accurate, data-efficient, and robust to real-world deployment with very high reliability, opening interesting perspectives for future research on RL for closed-loop soft robot control. With this paper, we also fully release our code and data, as well as the first soft robotics simulator coding interface supporting Domain Randomization.</p>
+      <p>
+        Soft robots offer many advantages over their rigid counterparts: i) safer interaction, ii) better adaptability to the environment, and iii) greater physical resilience and tolerance to deformation. However, one of the major challenges that limit their wide applicability is the difficulty of providing accurate modeling of their infinite-DoFs dynamics. This is a problem not only for purely model-based control, which suffers from the lack of explicit closed-form representations, but also for learning-based approaches, which need to learn from experience using accurate simulators. This challenge makes Reinforcement Learning (RL) particularly ineffective when used to train policies for soft robot control, because of the large domain gap between what can be simulated during training and the real world. This paper proposes RF-DROPO, a Domain Randomization technique specifically designed to tame the complexity of Sim-to-Real transfer in soft robotics. RF-DROPO employs an extremely small amount of data collected in the real world (as low as a single trajectory) to optimize posterior estimates of the dynamics parameters of the robot, which are then adopted as Domain Randomization distribution for RL policy training in simulation. Extensive evaluation in simulation and real-world environments on two different tasks demonstrate that RF-DROPO is accurate, data-efficient, and robust to real-world deployment with very high reliability, opening interesting perspectives for future research on RL for closed-loop soft robot control. With this paper, we also fully release our code, as well as the first soft robotics simulator coding interface supporting Domain Randomization.
+      </p>
       <p class="small"><strong>Keywords:</strong> Reinforcement Learning, Sim-to-Real transfer, Soft robotics, Domain Randomization.</p>
     </section>
 
@@ -250,15 +252,15 @@
       <div class="grid two">
         <div class="card">
           <h2>Method Overview</h2>
-          <p>Reset-Free DROPO is specifically designed to address highly-non linear and partially-observable environments, which is typical for deformable robots with infinite DoFs. It performs open-loop rollouts from the initial state s<sub>0</sub> of a trajectory collected in the real world. The likelihood of reaching each observed real-world state s<sub>t+1</sub> is estimated from a distribution of simulated transitions. Maximizing the likelihood of real-world data to occur in simulation, RF-DROPO computes an optimal distribution of dynamic parameters (e.g., friction, masses, etc.) used for training an RL policy with randomized parameters sampled from the same distribution. </p>
+          <p>Reset-Free DROPO is specifically designed to address highly-non linear and partially-observable environments, which is typical for deformable robots with infinite DoFs. It performs open-loop rollouts from the initial state s<sub>0</sub> of a trajectory collected in the real world. The likelihood of reaching each observed real-world state s<sub>t+1</sub> (blue circles) is estimated from a distribution of simulated transitions (yellow ovals) generated under sampled dynamics parameters ξ<sub>k</sub>. Maximizing the likelihood of real-world data to occur in simulation, RF-DROPO computes an optimal distribution of dynamics parameters (e.g., friction, masses, etc.) used for training an RL policy with randomized parameters sampled from the same distribution. </p>
           <img class="zoomable" src="assets/overview.png" alt="Method pipeline diagram" />
         </div>
         <div class="card full-height">
           <h2>Key Contributions</h2>
           <ul>
-            <li><strong>✅ Real-world validation</strong>: RF-DROPO enables zero-shot sim→real transfer on a physical soft robot; we release a modular DR framework, code, and data.</li>
-            <li><strong>📊 ADR under partial observability</strong>: state-of-the-art parameter inference and robust policy learning; extended robustness analysis across multiple misspecified parameters.</li>
-            <li><strong>💡 Few-shot data efficiency</strong>: effective even with a single real trajectory for reliable dynamic parameters distribution estimation and robust policy training.</li>
+            <li><strong>✅ Real-world validation</strong>: RF-DROPO enables zero-shot sim→real transfer on a physical soft robot; we fully release our code through an open-source, modular Domain Randomization framework.</li>
+            <li><strong>📊 ADR under partial observability</strong>: state-of-the-art dynamics parameters inference and robust policy learning; extended robustness analysis across multiple misspecified elastic parameters.</li>
+            <li><strong>💡 Few-shot data efficiency</strong>: effective even with a single real trajectory for reliable dynamics parameters distribution estimation and robust policy training.</li>
           </ul>
         </div>
       </div>
