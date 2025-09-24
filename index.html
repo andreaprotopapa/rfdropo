@@ -16,6 +16,8 @@
 
   <!-- Favicon (optional; replace with your own) -->
   <link rel="icon" href="assets/favicon.png" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
 
   <style>
     :root{
@@ -91,7 +93,9 @@
     .affil-notes{ color:var(--muted); margin-top:4px }
     .affils-numeric sup{ margin-right:3px }
 
-    .card{ background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow: var(--shadow); }
+    .card{ background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow: var(--shadow); display:flex; flex-direction:column; }
+    .card.full-height{ justify-content: space-between; }
+    .card.full-height ul{ flex-grow: 1; display: flex; flex-direction: column; justify-content: space-around; }
     section{ padding: 26px 0 }
     section h2{ font-size: clamp(22px, 3vw, 32px); margin:0 0 12px; }
     p{ line-height:1.7 }
@@ -222,8 +226,8 @@
       </div>
 
       <div class="cta">
-        <a class="btn" href="#" target="_blank">📄 Paper (PDF)</a>
-        <a class="btn" href="#resources">💻 Code</a>
+        <!-- <a class="btn" href="#" target="_blank">📄 Paper (PDF)</a>
+        <a class="btn" href="#resources">💻 Code</a> -->
         <!-- <a class="btn" href="#resources">🗂️ Dataset</a> -->
         <a class="btn" href="#video">▶️ Video</a>
       </div>
@@ -239,7 +243,7 @@
     <section id="abstract" class="card">
       <h2>Abstract</h2>
       <p>Soft robots come with many advantages with respect to their rigid counterparts: i) safer interaction, ii) higher adaptability to the environment, and iii) higher resilience and robustness. However, one of the major challenges that limit their wide applicability is the difficulty of specifying accurate models of their infinite-DoFs dynamics. This is a problem not only for purely model-based control, which suffers from the lack of explicit closed-form representations, but also for learning-based approaches, that need to learn from experience using accurate simulators. This makes Reinforcement Learning (RL) particularly ineffective when used to train policies for soft robot control, because of the large domain gap between what can be simulated during training and the real world. This paper proposes RF-DROPO, a Domain Randomization technique specifically designed to tame the complexity of sim-to-real transfer in soft robotics. RF-DROPO employs an extremely small amount of data collected in the real world (as low as a single trajectory) to optimize posterior estimates of the dynamic parameters of the robot, which are then adopted as domain randomization distributions for RL policy training in simulation. Extensive evaluations in simulation and real-world environments on two different tasks for a soft robot demonstrate that RF-DROPO is accurate, data-efficient, and robust to real-world deployment with very high reliability, opening interesting perspectives for future research on RL for closed-loop soft robot control. With this paper, we also fully release our code and data, as well as the first soft robotics simulator coding interface supporting Domain Randomization.</p>
-      <p class="small"><strong>Keywords:</strong> Reinforcement learning, Sim-to-real transfer, Soft robotics, Domain randomization.</p>
+      <p class="small"><strong>Keywords:</strong> Reinforcement Learning, Sim-to-Real transfer, Soft robotics, Domain Randomization.</p>
     </section>
 
     <section id="overview">
@@ -249,7 +253,7 @@
           <p>Reset-Free DROPO is specifically designed to address highly-non linear and partially-observable environments, which is typical for deformable robots with infinite DoFs. It performs open-loop rollouts from the initial state s<sub>0</sub> of a trajectory collected in the real world. The likelihood of reaching each observed real-world state s<sub>t+1</sub> is estimated from a distribution of simulated transitions. Maximizing the likelihood of real-world data to occur in simulation, RF-DROPO computes an optimal distribution of dynamic parameters (e.g., friction, masses, etc.) used for training an RL policy with randomized parameters sampled from the same distribution. </p>
           <img class="zoomable" src="assets/overview.png" alt="Method pipeline diagram" />
         </div>
-        <div class="card">
+        <div class="card full-height">
           <h2>Key Contributions</h2>
           <ul>
             <li><strong>✅ Real-world validation</strong>: RF-DROPO enables zero-shot sim→real transfer on a physical soft robot; we release a modular DR framework, code, and data.</li>
@@ -297,6 +301,7 @@
       -->
     </section>
 
+    <!--
     <section id="resources">
       <div class="grid two">
         <div class="card">
@@ -304,11 +309,11 @@
           <ul>
             <li>📄 <a href="#" target="_blank">Paper (PDF)</a> · <a href="#" target="_blank">arXiv</a> · <a href="#" target="_blank">DOI</a></li>
             <li>💻 <a href="#" target="_blank">Code (GitHub)</a>
-                <!-- · <a href="#" target="_blank">Model Weights</a> -->
+                · <a href="#" target="_blank">Model Weights</a>
             </li>
-            <!-- <li>🗂️ <a href="#" target="_blank">Dataset / Data Card</a></li> -->
-            <li>🎥 <a href="#video">Project Video</a> <!-- · <a href="#" target="_blank">Slides</a> · <a href="#" target="_blank">Poster</a> --></li>
-            <!-- <li>📰 <a href="#" target="_blank">Press Kit</a> (teaser, logos, one‑pager)</li> -->
+            <li>🗂️ <a href="#" target="_blank">Dataset / Data Card</a></li>
+            <li>🎥 <a href="#video">Project Video</a> · <a href="#" target="_blank">Slides</a> · <a href="#" target="_blank">Poster</a></li>
+            <li>📰 <a href="#" target="_blank">Press Kit</a> (teaser, logos, one‑pager)</li>
           </ul>
         </div>
         <div class="card">
@@ -327,7 +332,8 @@
           <button class="btn" id="copyBib">📋 Copy</button>
         </div>
       </div>
-    </section>
+    </section> 
+    -->
 
     <!--
         <section class="card">
@@ -388,16 +394,18 @@
       </div>
     </section>
 
-    <section class="card">
-      <h2>FAQ</h2>
-      <details><summary>Will you release the code/models?</summary>
-        <p>Yes, upon camera‑ready. Watch the GitHub repo for updates.</p>
-      </details>
-      <!--
-        <details><summary>How does this compare to Baseline X?</summary>
-        <p>We outperform Baseline X by Y% on Z metric while being simpler.</p>
+    <section>
+      <div class="card">
+        <h2>FAQ</h2>
+        <details><summary>Will you release the code/models?</summary>
+          <p>Yes, upon camera‑ready. Watch the GitHub repo for updates.</p>
         </details>
-      -->
+        <!--
+          <details><summary>How does this compare to Baseline X?</summary>
+          <p>We outperform Baseline X by Y% on Z metric while being simpler.</p>
+        </details>
+        -->
+      </div>
     </section>
 
     <footer class="container">
